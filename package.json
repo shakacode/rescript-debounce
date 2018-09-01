@@ -1,0 +1,40 @@
+{
+  "name": "re-debouncer",
+  "version": "0.0.0",
+  "description": "Simple debouncer for ReasonML",
+  "main": "src/Debouncer.re",
+  "author": "Alex Fedoseev <alex.fedoseev@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexfedoseev/re-debouncer.git"
+  },
+  "scripts": {
+    "start": "bsb -clean-world -make-world -w",
+    "build": "bsb -clean-world -make-world",
+    "clean": "bsb -clean-world",
+    "test": "yarn run build && jest",
+    "format": "bsrefmt --in-place **/*.{re,rei}"
+  },
+  "files": [
+    "src",
+    "bsconfig.json"
+  ],
+  "keywords": [
+    "react",
+    "reason",
+    "reason-react",
+    "reasonml",
+    "ocaml",
+    "bucklescript",
+    "debounce",
+    "debouncer"
+  ],
+  "peerDependencies": {
+    "bs-platform": "^4.0.5"
+  },
+  "devDependencies": {
+    "@glennsl/bs-jest": "0.4.3",
+    "bs-platform": "4.0.5"
+  }
+}
