@@ -1,4 +1,4 @@
-let make = (~wait=100, fn) => {
+let makeCancelable = (~wait=100, fn: 'a => unit): Debounced.t('a) => {
   let timerId = ref(None);
   let lastArg = ref(None);
   let lastCallTime = ref(None);
@@ -21,15 +21,15 @@ let make = (~wait=100, fn) => {
 
   let rec timerExpired = () => {
     switch (timerId^) {
-    | Some(timerId) => timerId |> Js.Global.clearTimeout
+    | Some(timerId) => timerId->Js.Global.clearTimeout
     | None => ()
     };
-    let time = Js.Date.now() |> int_of_float;
-    if (time |> shouldInvoke) {
+    let time = Js.Date.now()->int_of_float;
+    if (time->shouldInvoke) {
       invoke();
     } else {
       timerId :=
-        Some(time |> remainingWait |> Js.Global.setTimeout(timerExpired));
+        Some(time->remainingWait->Js.Global.setTimeout(timerExpired, _));
     };
   }
   and invoke = () => {
@@ -38,17 +38,33 @@ let make = (~wait=100, fn) => {
     | Some(x) =>
       lastArg := None;
       timerId := None;
-      x |> fn;
+      x->fn;
     | None => timerId := None
     };
   };
 
-  let debounced = x => {
-    let time = Js.Date.now() |> int_of_float;
+  let schedule = x => {
+    let time = Js.Date.now()->int_of_float;
     lastArg := Some(x);
     lastCallTime := Some(time);
-    timerId := Some(wait |> Js.Global.setTimeout(timerExpired));
+    timerId := Some(wait->Js.Global.setTimeout(timerExpired, _));
+  };
+  let scheduled = () => (timerId^)->Belt.Option.isSome;
+  let cancel = () =>
+    switch (timerId^) {
+    | Some(timerId') =>
+      timerId'->Js.Global.clearTimeout;
+      timerId := None;
+      lastArg := None;
+      lastCallTime := None;
+    | None => ()
+    };
+  let now = x => {
+    cancel();
+    x->fn;
   };
 
-  debounced;
+  {invoke: now, schedule, scheduled, cancel};
 };
+
+let make = (~wait=?, fn) => makeCancelable(~wait?, fn).schedule;
