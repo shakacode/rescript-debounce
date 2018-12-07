@@ -27,11 +27,34 @@ Then add it to `bsconfig.json`:
 
 ```reason
 /* Pass function you want to debounce */
-let debounced = Debouncer.make(fn);
+let fn = Debouncer.make(fn);
 
-/* You can configure timeout */
-let debounced = Debouncer.make(~wait=500, fn);
+/* You can configure timeout. Default is 100ms */
+let fn = Debouncer.make(~wait=500, fn);
+
+/* This call is debounced */
+fn();
 ```
+
+Also, you can make debounced function calls cancelable:
+
+```reason
+let fn = Debouncer.makeCancelable(fn);
+
+/* Schedule invocation */
+fn.schedule();
+
+/* Cancel invocation */
+fn.cancel();
+
+/* Check if invocation is scheduled */
+fn.scheduled(); /* => false */
+
+/* Invoke immediately */
+fn.invoke();
+```
+
+Note that if you invoke immediately all scheduled invocations (if any) are canceled.
 
 ## Example
 In this example requests to remote server will be debounced.
@@ -45,7 +68,7 @@ type action =
 
 module Handlers = {
   let requestServerUpdate = Debouncer.make(
-    ({React.state, send}) => RequestServerUpdate(state.value) |> send,
+    ({React.state, send}) => RequestServerUpdate(state.value)->send,
   );
 };
 
@@ -76,7 +99,16 @@ let make = _ => {
 ```
 
 ## Caveats
-Don't inline `Debouncer.make(fn)` calls in reducer, this won't work since debounced function will be re-created on every dispatch:
+#### I need to pass multiple arguments to debounced function
+Pack those in tuple:
+
+```reason
+let fn = Debouncer.make(((one, two)) => /* use `one` & `two` */);
+fn(("one", "two"));
+```
+
+#### It doesn't work, function is not debounced
+The result of `Debouncer.make(fn)` call **must** be bound to a variable (or a record property etc) for the later invocations. I.e. don't inline `Debouncer.make(fn)` calls in reducer, this won't work since debounced function will be re-created on every dispatch:
 
 ```reason
 reducer: (action, state) =>
@@ -86,7 +118,7 @@ reducer: (action, state) =>
       {value: nextValue},
       /* Don't do this */
       Debouncer.make(
-        ({state, send}) => RequestServerUpdate(state.value) |> send,
+        ({state, send}) => RequestServerUpdate(state.value)->send,
       ),
     )
   }
