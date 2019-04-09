@@ -1,4 +1,11 @@
-let makeCancelable = (~wait=100, fn: 'a => unit): Debounced.t('a) => {
+type debounced('a) = {
+  invoke: 'a => unit,
+  schedule: 'a => unit,
+  scheduled: unit => bool,
+  cancel: unit => unit,
+};
+
+let makeCancelable = (~wait=100, fn: 'a => unit): debounced('a) => {
   let timerId = ref(None);
   let lastArg = ref(None);
   let lastCallTime = ref(None);
