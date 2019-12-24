@@ -4,7 +4,7 @@
 [![build status](https://img.shields.io/travis/alexfedoseev/re-debouncer/master.svg?style=flat-square)](https://travis-ci.org/alexfedoseev/re-debouncer)
 [![license](https://img.shields.io/npm/l/re-debouncer.svg?style=flat-square)](https://www.npmjs.com/package/re-debouncer)
 
-Simple debouncer for Reason(React).
+Debouncer for Reason(React).
 
 ## Installation
 
@@ -26,13 +26,13 @@ Then add it to `bsconfig.json`:
 ## Usage
 
 ```reason
-/* Pass function you want to debounce */
+// Pass function you want to debounce
 let fn = Debouncer.make(fn);
 
-/* You can configure timeout. Default is 100ms */
+// You can configure timeout. Default is 100ms
 let fn = Debouncer.make(~wait=500, fn);
 
-/* This call is debounced */
+// This call is debounced
 fn();
 ```
 
@@ -41,16 +41,16 @@ Also, you can make debounced function calls cancelable:
 ```reason
 let fn = Debouncer.makeCancelable(fn);
 
-/* Schedule invocation */
+// Schedule invocation
 fn.schedule();
 
-/* Cancel invocation */
+// Cancel invocation
 fn.cancel();
 
-/* Check if invocation is scheduled */
-fn.scheduled(); /* => false */
+// Check if invocation is scheduled
+fn.scheduled(); // => false
 
-/* Invoke immediately */
+// Invoke immediately
 fn.invoke();
 ```
 

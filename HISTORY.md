@@ -1,5 +1,8 @@
 # History
 
+## 2.1.0
+- `bs-platform` updated to `v7`.
+
 ## 2.0.0
 - **[ BREAKING ]** `Debounced.t` moved into `Debouncer` module.
 - **[ BREAKING ]** `bs-platform` updated to `5.0.0`.
