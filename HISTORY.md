@@ -1,5 +1,8 @@
 # History
 
+## 3.0.0
+- Package name changed to `rescript-debouncer`.
+
 ## 2.1.0
 - `bs-platform` updated to `v7`.
 

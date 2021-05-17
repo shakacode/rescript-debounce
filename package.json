@@ -1,27 +1,32 @@
 {
-  "name": "re-debouncer",
+  "name": "rescript-debouncer",
   "version": "2.1.0",
-  "description": "Simple debouncer for ReasonML",
-  "main": "src/Debouncer.re",
-  "author": "Alex Fedoseev <alex.fedoseev@gmail.com>",
+  "description": "Simple debouncer for ReScript",
+  "main": "src/Debouncer.res",
+  "author": "Alex Fedoseev <alex@fedoseev.mx>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexfedoseev/re-debouncer.git"
+    "url": "https://github.com/shakacode/rescript-debouncer.git"
   },
   "scripts": {
-    "start": "bsb -clean-world -make-world -w",
-    "build": "bsb -clean-world -make-world",
-    "clean": "bsb -clean-world",
-    "test": "yarn run build && jest",
-    "format": "bsrefmt --in-place **/*.{re,rei}"
+    "start": "yarn run watch",
+    "build": "rescript build",
+    "prebuild": "yarn run clean",
+    "watch": "rescript build -w",
+    "clean": "rescript clean",
+    "test": "jest",
+    "pretest": "yarn run clean && yarn run build",
+    "format": "rescript format -all"
   },
   "files": [
     "src",
     "bsconfig.json"
   ],
   "keywords": [
+    "rescript",
     "react",
+    "rescript-react",
     "reason",
     "reason-react",
     "reasonml",
@@ -31,7 +36,7 @@
     "debouncer"
   ],
   "devDependencies": {
-    "@glennsl/bs-jest": "0.4.9",
-    "bs-platform": "7.0.1"
+    "@glennsl/bs-jest": "0.7.0",
+    "rescript": "9.1.2"
   }
 }
