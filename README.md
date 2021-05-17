@@ -2,7 +2,7 @@
 
 [![version](https://img.shields.io/npm/v/rescript-debouncer.svg?style=flat-square)](https://www.npmjs.com/package/rescript-debouncer)
 [![license](https://img.shields.io/npm/l/rescript-debouncer.svg?style=flat-square)](https://www.npmjs.com/package/rescript-debouncer)
-[![build](https://github.com/MinimaHQ/rescript-debouncer/workflows/build/badge.svg)](https://github.com/MinimaHQ/rescript-debouncer/actions?query=workflow%3Abuild)
+[![build](https://github.com/shakacode/rescript-debouncer/actions/workflows/ci.yml/badge.svg)](https://github.com/shakacode/rescript-debouncer/actions/workflows/ci.yml)
 
 Debouncer for ReScript.
 
