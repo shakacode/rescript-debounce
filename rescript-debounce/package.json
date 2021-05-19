@@ -1,6 +1,6 @@
 {
   "name": "rescript-debounce",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Debounce for ReScript",
   "author": "Alex Fedoseev <alex@fedoseev.mx>",
   "license": "MIT",
