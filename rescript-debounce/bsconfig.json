@@ -1,5 +1,5 @@
 {
-  "name": "rescript-debouncer",
+  "name": "rescript-debounce",
   "sources": [
     "src",
     {
@@ -7,7 +7,9 @@
       "type" : "dev"
     }
   ],
-  "bs-dev-dependencies": ["@glennsl/bs-jest"],
+  "bs-dev-dependencies": [
+    "@glennsl/bs-jest"
+  ],
   "package-specs": {
     "module": "commonjs",
     "in-source": true

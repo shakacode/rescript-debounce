@@ -6,5 +6,4 @@ type debounced<'a> = {
 }
 
 let make: (~wait: int=?, 'a => unit, 'a) => unit
-
-let makeCancelable: (~wait: int=?, 'a => unit) => debounced<'a>
+let makeControlled: (~wait: int=?, 'a => unit) => debounced<'a>

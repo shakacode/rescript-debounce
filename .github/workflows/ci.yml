@@ -38,9 +38,12 @@ jobs:
 
       - name: Install
         run: yarn install
+        working-directory: ./rescript-debounce
 
       - name: Build
         run: yarn run build
+        working-directory: ./rescript-debounce
 
       - name: Test
         run: yarn run test
+        working-directory: ./rescript-debounce

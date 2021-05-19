@@ -1,22 +1,21 @@
 {
-  "name": "rescript-debouncer",
-  "version": "3.0.0",
-  "description": "Simple debouncer for ReScript",
-  "main": "src/Debouncer.res",
+  "name": "rescript-debounce",
+  "version": "0.0.0",
+  "description": "Debounce for ReScript",
   "author": "Alex Fedoseev <alex@fedoseev.mx>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shakacode/rescript-debouncer.git"
+    "url": "https://github.com/shakacode/rescript-debounce.git"
   },
   "scripts": {
-    "start": "yarn run watch",
+    "start": "npm run watch",
     "build": "rescript build",
-    "prebuild": "yarn run clean",
+    "prebuild": "npm run clean",
     "watch": "rescript build -w",
     "clean": "rescript clean",
     "test": "jest",
-    "pretest": "yarn run clean && yarn run build",
+    "pretest": "npm run clean && npm run build",
     "format": "rescript format -all"
   },
   "files": [
@@ -24,16 +23,15 @@
     "bsconfig.json"
   ],
   "keywords": [
-    "rescript",
     "react",
+    "rescript",
     "rescript-react",
     "reason",
     "reason-react",
     "reasonml",
     "ocaml",
     "bucklescript",
-    "debounce",
-    "debouncer"
+    "debounce"
   ],
   "devDependencies": {
     "@glennsl/bs-jest": "0.7.0",

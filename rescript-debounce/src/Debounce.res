@@ -5,12 +5,12 @@ type debounced<'a> = {
   cancel: unit => unit,
 }
 
-let makeCancelable = (~wait=100, fn: 'a => unit): debounced<'a> => {
+let makeControlled = (~wait=100, fn: 'a => unit): debounced<'a> => {
   let timerId = ref(None)
   let lastArg = ref(None)
   let lastCallTime = ref(None)
 
-  let shouldInvoke = time =>
+  let shouldCall = time =>
     switch lastCallTime.contents {
     | None => true
     | Some(lastCallTime) =>
@@ -31,14 +31,14 @@ let makeCancelable = (~wait=100, fn: 'a => unit): debounced<'a> => {
     | Some(timerId) => timerId->Js.Global.clearTimeout
     | None => ()
     }
-    let time = Js.Date.now()->int_of_float
-    if time->shouldInvoke {
-      invoke()
+    let time = Js.Date.now()->Belt.Int.fromFloat
+    if time->shouldCall {
+      call()
     } else {
       timerId := Some(time->remainingWait->Js.Global.setTimeout(timerExpired, _))
     }
   }
-  and invoke = () => {
+  and call = () => {
     let x = lastArg.contents
     switch x {
     | Some(x) =>
@@ -50,12 +50,18 @@ let makeCancelable = (~wait=100, fn: 'a => unit): debounced<'a> => {
   }
 
   let schedule = x => {
-    let time = Js.Date.now()->int_of_float
+    let time = Js.Date.now()->Belt.Int.fromFloat
     lastArg := Some(x)
     lastCallTime := Some(time)
     timerId := Some(wait->Js.Global.setTimeout(timerExpired, _))
   }
-  let scheduled = () => timerId.contents->Belt.Option.isSome
+
+  let scheduled = () =>
+    switch timerId.contents {
+    | Some(_) => true
+    | None => false
+    }
+
   let cancel = () =>
     switch timerId.contents {
     | Some(timerId') =>
@@ -65,12 +71,18 @@ let makeCancelable = (~wait=100, fn: 'a => unit): debounced<'a> => {
       lastCallTime := None
     | None => ()
     }
-  let now = x => {
+
+  let invoke = x => {
     cancel()
     x->fn
   }
 
-  {invoke: now, schedule: schedule, scheduled: scheduled, cancel: cancel}
+  {
+    invoke: invoke,
+    schedule: schedule,
+    scheduled: scheduled,
+    cancel: cancel,
+  }
 }
 
-let make = (~wait=?, fn) => makeCancelable(~wait?, fn).schedule
+let make = (~wait=?, fn) => makeControlled(~wait?, fn).schedule
