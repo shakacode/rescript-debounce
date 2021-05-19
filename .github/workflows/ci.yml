@@ -36,11 +36,22 @@ jobs:
           restore-keys: |
             ${{ matrix.os }}-yarn-
 
-      - name: Install
+      - name: Install rescript-debounce deps
         run: yarn install
+        working-directory: ./rescript-debounce
 
-      - name: Build
+      - name: Install rescript-debounce-react deps
+        run: yarn install
+        working-directory: ./rescript-debounce-react
+
+      - name: Build rescript-debounce
         run: yarn run build
+        working-directory: ./rescript-debounce
 
-      - name: Test
+      - name: Build rescript-debounce-react
+        run: yarn run build
+        working-directory: ./rescript-debounce-react
+
+      - name: Test rescript-debounce
         run: yarn run test
+        working-directory: ./rescript-debounce

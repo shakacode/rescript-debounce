@@ -1,13 +1,12 @@
 {
-  "name": "rescript-debouncer",
+  "name": "rescript-debounce-react",
   "sources": [
-    "src",
-    {
-      "dir": "__tests__",
-      "type" : "dev"
-    }
+    "src"
   ],
-  "bs-dev-dependencies": ["@glennsl/bs-jest"],
+  "bs-dependencies": [
+    "@rescript/react",
+    "rescript-debounce"
+  ],
   "package-specs": {
     "module": "commonjs",
     "in-source": true

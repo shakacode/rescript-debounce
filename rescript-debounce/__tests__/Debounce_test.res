@@ -1,11 +1,11 @@
 open Jest
 
-describe("Debouncer", () => {
+describe("Debounce", () => {
   open Expect
 
   test("is not called immediately", () => {
     let mockFn = JestJs.fn(_ => ())
-    let fn = mockFn |> Obj.magic |> Debouncer.make
+    let fn = mockFn |> Obj.magic |> Debounce.make
 
     MockJs.fn(fn |> Obj.magic, "1") |> ignore
 
@@ -14,7 +14,7 @@ describe("Debouncer", () => {
 
   testAsync("called after timeout", finish => {
     let mockFn = JestJs.fn(_ => ())
-    let fn = mockFn |> Obj.magic |> Debouncer.make
+    let fn = mockFn |> Obj.magic |> Debounce.make
 
     MockJs.fn(fn |> Obj.magic, ()) |> ignore
 
@@ -25,7 +25,7 @@ describe("Debouncer", () => {
 
   testAsync("called with provided argument after timeout", finish => {
     let mockFn = JestJs.fn(_ => ())
-    let fn = mockFn |> Obj.magic |> Debouncer.make
+    let fn = mockFn |> Obj.magic |> Debounce.make
 
     MockJs.fn(fn |> Obj.magic, "1") |> ignore
 
@@ -36,7 +36,7 @@ describe("Debouncer", () => {
 
   testAsync("called only once with the latest argument", finish => {
     let mockFn = JestJs.fn(_ => ())
-    let fn = mockFn |> Obj.magic |> Debouncer.make
+    let fn = mockFn |> Obj.magic |> Debounce.make
 
     MockJs.fn(fn |> Obj.magic, "1") |> ignore
     MockJs.fn(fn |> Obj.magic, "2") |> ignore
@@ -49,7 +49,7 @@ describe("Debouncer", () => {
 
   testAsync("called with provided timeout", finish => {
     let mockFn = JestJs.fn(_ => ())
-    let fn = mockFn |> Obj.magic |> Debouncer.make(~wait=500)
+    let fn = mockFn |> Obj.magic |> Debounce.make(~wait=500)
 
     MockJs.fn(fn |> Obj.magic, "1") |> ignore
 
@@ -60,7 +60,7 @@ describe("Debouncer", () => {
 
   testAsync("can be scheduled", finish => {
     let mockFn = JestJs.fn(_ => ())
-    let fn = mockFn |> Obj.magic |> Debouncer.makeCancelable(~wait=500)
+    let fn = mockFn |> Obj.magic |> Debounce.makeControlled(~wait=500)
 
     MockJs.fn(fn.schedule |> Obj.magic, "1") |> ignore
 
@@ -71,7 +71,7 @@ describe("Debouncer", () => {
 
   test("can be called immediately", () => {
     let mockFn = JestJs.fn(_ => ())
-    let fn = mockFn |> Obj.magic |> Debouncer.makeCancelable
+    let fn = mockFn |> Obj.magic |> Debounce.makeControlled
 
     MockJs.fn(fn.invoke |> Obj.magic, "1") |> ignore
 
@@ -80,7 +80,7 @@ describe("Debouncer", () => {
 
   testAsync("not called after immediate invocation", finish => {
     let mockFn = JestJs.fn(_ => ())
-    let fn = mockFn |> Obj.magic |> Debouncer.makeCancelable
+    let fn = mockFn |> Obj.magic |> Debounce.makeControlled
 
     MockJs.fn(fn.schedule |> Obj.magic, "1") |> ignore
     MockJs.fn(fn.invoke |> Obj.magic, "2") |> ignore
@@ -92,7 +92,7 @@ describe("Debouncer", () => {
 
   testAsync("can be canceled", finish => {
     let mockFn = JestJs.fn(_ => ())
-    let fn = mockFn |> Obj.magic |> Debouncer.makeCancelable
+    let fn = mockFn |> Obj.magic |> Debounce.makeControlled
 
     MockJs.fn(fn.schedule |> Obj.magic, "1") |> ignore
     fn.cancel()
@@ -104,7 +104,7 @@ describe("Debouncer", () => {
 
   test("reports scheduled true when invocation is scheduled", () => {
     let mockFn = JestJs.fn(_ => ())
-    let fn = mockFn |> Obj.magic |> Debouncer.makeCancelable
+    let fn = mockFn |> Obj.magic |> Debounce.makeControlled
 
     MockJs.fn(fn.schedule |> Obj.magic, "1") |> ignore
 
@@ -113,7 +113,7 @@ describe("Debouncer", () => {
 
   test("reports scheduled false when invocation is not scheduled", () => {
     let mockFn = JestJs.fn(_ => ())
-    let fn = mockFn |> Obj.magic |> Debouncer.makeCancelable
+    let fn = mockFn |> Obj.magic |> Debounce.makeControlled
 
     expect(fn.scheduled()) |> toEqual(false)
   })

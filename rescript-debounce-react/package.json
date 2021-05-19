@@ -1,0 +1,41 @@
+{
+  "name": "rescript-debounce-react",
+  "version": "1.0.0",
+  "description": "Debounce hooks for @rescript/react",
+  "author": "Alex Fedoseev <alex@fedoseev.mx>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shakacode/rescript-debounce.git"
+  },
+  "scripts": {
+    "start": "npm run watch",
+    "build": "rescript build",
+    "prebuild": "npm run clean",
+    "watch": "rescript build -w",
+    "clean": "rescript clean",
+    "format": "rescript format -all"
+  },
+  "files": [
+    "src",
+    "bsconfig.json"
+  ],
+  "keywords": [
+    "react",
+    "rescript",
+    "rescript-react",
+    "reason",
+    "reason-react",
+    "reasonml",
+    "ocaml",
+    "bucklescript",
+    "debounce"
+  ],
+  "dependencies": {
+    "rescript-debounce": "^1.0.0"
+  },
+  "devDependencies": {
+    "@rescript/react": "0.10.3",
+    "rescript": "9.1.2"
+  }
+}

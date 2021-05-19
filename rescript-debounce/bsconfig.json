@@ -1,0 +1,21 @@
+{
+  "name": "rescript-debounce",
+  "sources": [
+    "src",
+    {
+      "dir": "__tests__",
+      "type" : "dev"
+    }
+  ],
+  "bs-dev-dependencies": [
+    "@glennsl/bs-jest"
+  ],
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": true
+  },
+  "suffix": ".bs.js",
+  "warnings": {
+    "number": "+A-42-48"
+  }
+}
