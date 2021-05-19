@@ -1,12 +1,12 @@
 {
   "name": "rescript-debounce-react",
   "version": "1.0.0",
-  "description": "Debounce for @rescript/react",
+  "description": "Debounce hooks for @rescript/react",
   "author": "Alex Fedoseev <alex@fedoseev.mx>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shakacode/rescript-debounce-react.git"
+    "url": "https://github.com/shakacode/rescript-debounce.git"
   },
   "scripts": {
     "start": "npm run watch",
