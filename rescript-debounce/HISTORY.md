@@ -1,5 +1,8 @@
 # History
 
+### 1.0.1
+- Fix dead links in READMEs.
+
 ### 1.0.0
 - Package name changed to `rescript-debounce` (sorry for this back and forth!).
 - Main module is renamed to `Debounce`.

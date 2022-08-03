@@ -4,6 +4,7 @@
   "description": "Debounce hooks for @rescript/react",
   "author": "Alex Fedoseev <alex@fedoseev.mx>",
   "license": "MIT",
+  "homepage": "https://github.com/shakacode/rescript-debounce",
   "repository": {
     "type": "git",
     "url": "https://github.com/shakacode/rescript-debounce.git"
