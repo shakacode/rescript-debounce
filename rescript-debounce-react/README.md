@@ -20,7 +20,7 @@ yarn add rescript-debounce-react
 npm install --save rescript-debounce-react
 ```
 
-Then add it to `bsconfig.json`:
+Then add it to `rescript.json`:
 
 ```json
 "bs-dependencies": [
@@ -32,13 +32,13 @@ Then add it to `bsconfig.json`:
 
 ```rescript
 // With default timeout (100ms)
-let fn = ReactDebounce.useDebounced(fn)
+let fn = fn->ReactDebounce.useDebounced
 
 // With configured timeout
-let fn = ReactDebounce.useDebounced(~wait=250, fn)
+let fn = fn->ReactDebounce.useDebounced(~wait=250)
 
 // Controlled hook
-let fn = ReactDebounce.useControlled(fn)
+let fn = fn->ReactDebounce.useControlled
 ```
 
 See [`rescript-debounce`](https://www.npmjs.com/package/rescript-debounce) for more details.
