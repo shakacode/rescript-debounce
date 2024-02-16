@@ -33,10 +33,10 @@
     "debounce"
   ],
   "dependencies": {
-    "rescript-debounce": "^1.0.0"
+    "rescript-debounce": "^2.0.0"
   },
   "devDependencies": {
-    "@rescript/react": "0.10.3",
-    "rescript": "10.0.1"
+    "@rescript/react": "0.12.1",
+    "rescript": "11.0.1"
   }
 }

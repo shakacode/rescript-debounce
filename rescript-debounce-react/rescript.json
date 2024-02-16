@@ -8,10 +8,10 @@
     "rescript-debounce"
   ],
   "package-specs": {
-    "module": "commonjs",
+    "module": "es6",
     "in-source": true
   },
-  "suffix": ".bs.js",
+  "suffix": ".res.js",
   "warnings": {
     "number": "+A-42-48"
   }
