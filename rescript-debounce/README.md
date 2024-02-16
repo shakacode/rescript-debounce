@@ -20,7 +20,7 @@ yarn add rescript-debounce
 npm install --save rescript-debounce
 ```
 
-Then add it to `bsconfig.json`:
+Then add it to `rescript.json`:
 
 ```json
 "bs-dependencies": [
