@@ -28,14 +28,14 @@ let makeControlled = (~wait=100, fn: 'a => unit): debounced<'a> => {
 
   let rec timerExpired = () => {
     switch timerId.contents {
-    | Some(timerId) => timerId->Js.Global.clearTimeout
+    | Some(timerId) => timerId->clearTimeout
     | None => ()
     }
-    let time = Js.Date.now()->Belt.Int.fromFloat
+    let time = Date.now()->Int.fromFloat
     if time->shouldCall {
       call()
     } else {
-      timerId := Some(time->remainingWait->Js.Global.setTimeout(timerExpired, _))
+      timerId := Some(timerExpired->setTimeout(time->remainingWait))
     }
   }
   and call = () => {
@@ -50,10 +50,10 @@ let makeControlled = (~wait=100, fn: 'a => unit): debounced<'a> => {
   }
 
   let schedule = x => {
-    let time = Js.Date.now()->Belt.Int.fromFloat
+    let time = Date.now()->Int.fromFloat
     lastArg := Some(x)
     lastCallTime := Some(time)
-    timerId := Some(wait->Js.Global.setTimeout(timerExpired, _))
+    timerId := Some(timerExpired->setTimeout(wait))
   }
 
   let scheduled = () =>
@@ -65,7 +65,7 @@ let makeControlled = (~wait=100, fn: 'a => unit): debounced<'a> => {
   let cancel = () =>
     switch timerId.contents {
     | Some(timerId') =>
-      timerId'->Js.Global.clearTimeout
+      timerId'->clearTimeout
       timerId := None
       lastArg := None
       lastCallTime := None
@@ -78,10 +78,10 @@ let makeControlled = (~wait=100, fn: 'a => unit): debounced<'a> => {
   }
 
   {
-    invoke: invoke,
-    schedule: schedule,
-    scheduled: scheduled,
-    cancel: cancel,
+    invoke,
+    schedule,
+    scheduled,
+    cancel,
   }
 }
 

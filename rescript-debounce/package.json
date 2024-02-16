@@ -1,8 +1,8 @@
 {
   "name": "rescript-debounce",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Debounce for ReScript",
-  "author": "Alex Fedoseev <alex@fedoseev.mx>",
+  "author": "Alex Fedoseev <alex@35mil.me>",
   "license": "MIT",
   "homepage": "https://github.com/shakacode/rescript-debounce",
   "repository": {
@@ -21,7 +21,7 @@
   },
   "files": [
     "src",
-    "bsconfig.json"
+    "rescript.json"
   ],
   "keywords": [
     "react",
@@ -35,7 +35,13 @@
     "debounce"
   ],
   "devDependencies": {
-    "@glennsl/bs-jest": "0.7.0",
-    "rescript": "10.0.1"
+    "@babel/core": "7.23.9",
+    "@babel/preset-env": "7.23.9",
+    "@glennsl/rescript-jest": "0.10.0",
+    "babel-jest": "29.7.0",
+    "rescript": "11.0.1"
+  },
+  "dependencies": {
+    "@rescript/core": "1.0.0"
   }
 }
