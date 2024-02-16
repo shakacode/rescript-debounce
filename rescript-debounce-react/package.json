@@ -2,7 +2,7 @@
   "name": "rescript-debounce-react",
   "version": "2.0.0",
   "description": "Debounce hooks for @rescript/react",
-  "author": "Alex Fedoseev <alex@fedoseev.mx>",
+  "author": "Alex Fedoseev <alex@35mil.me>",
   "license": "MIT",
   "homepage": "https://github.com/shakacode/rescript-debounce",
   "repository": {
@@ -19,7 +19,7 @@
   },
   "files": [
     "src",
-    "bsconfig.json"
+    "rescript.json"
   ],
   "keywords": [
     "react",
