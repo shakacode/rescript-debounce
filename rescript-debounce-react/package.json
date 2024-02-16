@@ -1,6 +1,6 @@
 {
   "name": "rescript-debounce-react",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Debounce hooks for @rescript/react",
   "author": "Alex Fedoseev <alex@fedoseev.mx>",
   "license": "MIT",
