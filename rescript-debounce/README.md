@@ -32,10 +32,10 @@ Then add it to `bsconfig.json`:
 
 ```rescript
 // Pass function you want to debounce
-let fn = Debounce.make(fn)
+let fn = fn->Debounce.make
 
 // You can configure timeout. Default is 100ms.
-let fn = Debounce.make(~wait=500, fn)
+let fn = fn->Debounce.make(~wait=500)
 
 // This call is debounced
 fn()
@@ -44,7 +44,7 @@ fn()
 Also, you can get more control over the debouncing:
 
 ```rescript
-let fn = Debounce.makeControlled(fn)
+let fn = fn->Debounce.makeControlled
 
 // Schedule invocation
 fn.schedule()

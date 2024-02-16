@@ -1,0 +1,27 @@
+{
+    "name": "rescript-debounce",
+    "sources": [
+        "src",
+        {
+            "dir": "tests",
+            "type": "dev"
+        }
+    ],
+    "bs-dependencies": [
+        "@rescript/core"
+    ],
+    "bs-dev-dependencies": [
+        "@glennsl/rescript-jest"
+    ],
+    "package-specs": {
+        "module": "es6",
+        "in-source": true
+    },
+    "suffix": ".res.js",
+    "warnings": {
+        "number": "+A-42-48"
+    },
+    "bsc-flags": [
+        "-open RescriptCore"
+    ]
+}
