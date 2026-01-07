@@ -36,7 +36,7 @@
     "rescript-debounce": "^2.0.0"
   },
   "devDependencies": {
-    "@rescript/react": "0.12.1",
-    "rescript": "11.0.1"
+    "@rescript/react": "0.14.0",
+    "rescript": "12.0.2"
   }
 }
