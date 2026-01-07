@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@rescript/core@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@rescript/core/-/core-1.0.0.tgz#8626f3b1c09eeb1b4788f42f754e58d3e68041c1"
-  integrity sha512-F5HURYYx8Kp6h1KBiri2nFwGKR16o9/XTCNl2TEWfCwqR+MTzf/lpuPuB6ajnaYytsU0kTUBIFI0DOoLgkDxSg==
-
 "@rescript/darwin-arm64@12.0.2":
   version "12.0.2"
   resolved "https://registry.yarnpkg.com/@rescript/darwin-arm64/-/darwin-arm64-12.0.2.tgz#15255f5408def54b0fe5d411832ac05c9fdf7976"
@@ -42,12 +37,10 @@
   resolved "https://registry.yarnpkg.com/@rescript/win32-x64/-/win32-x64-12.0.2.tgz#770bcf038e5028f673be48261e06ec963b436391"
   integrity sha512-QcNQiok3H2Xd+cReB1kpH4hlPXnT7DA6ETsJfZugTUOKOdAYLTJ+Imynv+ojuafkUrwa2v0tZAiqHaQsDjf9IQ==
 
-rescript-debounce@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/rescript-debounce/-/rescript-debounce-2.0.0.tgz#ca6ceecaf909b6b24eb51d6e7558878d6c278d7a"
-  integrity sha512-hZkvTnnGj/ppG6ZSXta9WSmDoMJmePEH3/lEWxjYVByIV9ALH9wePgyrnad6mgmP1EW6syEZhsmjXFMDJ5PrYA==
-  dependencies:
-    "@rescript/core" "1.0.0"
+rescript-debounce@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/rescript-debounce/-/rescript-debounce-3.0.0.tgz#b5c3619a3de8ff96234e95c2bdc269020e905454"
+  integrity sha512-4SlisvQR+rEL7BoakmNH7zRbviLsygljz5zguhQFqNHpZNL+T1a/SOll63FpSuqNb398uf8kHPQUXW4IA45ucA==
 
 rescript@12.0.2:
   version "12.0.2"

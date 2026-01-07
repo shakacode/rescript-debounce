@@ -15,7 +15,7 @@
     "prebuild": "npm run clean",
     "watch": "rescript build -w",
     "clean": "rescript clean",
-    "format": "rescript format -all"
+    "format": "rescript format"
   },
   "files": [
     "src",
@@ -33,7 +33,7 @@
     "debounce"
   ],
   "dependencies": {
-    "rescript-debounce": "^2.0.0"
+    "rescript-debounce": "^3.0.0"
   },
   "devDependencies": {
     "@rescript/react": "0.14.0",
