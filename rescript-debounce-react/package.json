@@ -1,6 +1,6 @@
 {
   "name": "rescript-debounce-react",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Debounce hooks for @rescript/react",
   "author": "Alex Fedoseev <alex@35mil.me>",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "prebuild": "npm run clean",
     "watch": "rescript build -w",
     "clean": "rescript clean",
-    "format": "rescript format -all"
+    "format": "rescript format"
   },
   "files": [
     "src",
@@ -33,10 +33,10 @@
     "debounce"
   ],
   "dependencies": {
-    "rescript-debounce": "^2.0.0"
+    "rescript-debounce": "^3.0.0"
   },
   "devDependencies": {
-    "@rescript/react": "0.12.1",
-    "rescript": "11.0.1"
+    "@rescript/react": "0.14.0",
+    "rescript": "12.0.2"
   }
 }
