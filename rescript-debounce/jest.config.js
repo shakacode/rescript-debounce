@@ -1,5 +1,6 @@
 module.exports = {
     testEnvironment: "node",
     testRegex: "tests/.*\\.res\\.js$",
-    transformIgnorePatterns: ["node_modules/(?!(rescript|@glennsl/rescript-jest)/)"],
+    testPathIgnorePatterns: ["/node_modules/", "/lib/"],
+    transformIgnorePatterns: ["node_modules/(?!(@rescript/runtime|@glennsl/rescript-jest)/)"],
 };

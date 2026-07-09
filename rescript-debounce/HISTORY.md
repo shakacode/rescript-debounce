@@ -1,5 +1,8 @@
 # History
 
+### 3.0.0
+- `rescript` is updated to `v12`.
+
 ### 2.0.0
 - `rescript` is updated to `v11`.
 

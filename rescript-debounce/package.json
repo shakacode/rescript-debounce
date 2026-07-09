@@ -1,6 +1,6 @@
 {
   "name": "rescript-debounce",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Debounce for ReScript",
   "author": "Alex Fedoseev <alex@35mil.me>",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "clean": "rescript clean",
     "test": "jest",
     "pretest": "npm run clean && npm run build",
-    "format": "rescript format -all"
+    "format": "rescript format"
   },
   "files": [
     "src",
@@ -35,13 +35,10 @@
     "debounce"
   ],
   "devDependencies": {
-    "@babel/core": "7.23.9",
-    "@babel/preset-env": "7.23.9",
-    "@glennsl/rescript-jest": "0.10.0",
-    "babel-jest": "29.7.0",
-    "rescript": "11.0.1"
-  },
-  "dependencies": {
-    "@rescript/core": "1.0.0"
+    "@babel/core": "7.28.5",
+    "@babel/preset-env": "7.28.5",
+    "@glennsl/rescript-jest": "0.13.1",
+    "babel-jest": "30.2.0",
+    "rescript": "12.0.2"
   }
 }

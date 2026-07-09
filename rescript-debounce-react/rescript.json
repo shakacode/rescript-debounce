@@ -3,7 +3,7 @@
   "sources": [
     "src"
   ],
-  "bs-dependencies": [
+  "dependencies": [
     "@rescript/react",
     "rescript-debounce"
   ],
